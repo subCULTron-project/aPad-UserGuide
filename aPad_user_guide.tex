@@ -1,0 +1,85 @@
+\documentclass[10pt,letterpaper,extrafontsizes]{memoir}
+\listfiles
+\usepackage{comment}
+
+%\usepackage{memsty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlepages}  % code of the example titlepages
+\usepackage{memlays}     % extra layout diagrams
+\usepackage{dpfloat}     % floats on facing pages
+\usepackage{fonttable}[2009/04/01]   % font tables
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{hyperref}
+
+
+\setlength{\doublerulesep}{0pt}
+\newcommand{\myhline}{\hline\hline\hline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Use the built-in division styling
+\headstyles{memman}
+
+%%% ToC down to subsections
+\settocdepth{subsection}
+%%% Numbering down to subsections as well
+\setsecnumdepth{subsection}
+
+%%%% extra index for first lines
+\makeindex[lines]
+
+% this 'if' is used to determine whether we are compiling the memoir
+% master in the subversion repository, or the public memman.tex
+\newif\ifMASTER
+\MASTERfalse
+%\MASTERtrue
+
+\ifMASTER
+
+% we add this to the first page of each chapter
+
+\makepagestyle{chapter}
+\makeoddfoot{chapter}{\addRevisionData}{\thepage}{}
+\makeevenfoot{chapter}{\addRevisionData}{\thepage}{}
+
+\else
+% disable svn info collecting
+\newcommand\svnidlong[4]{}
+\fi
+
+\setsecheadstyle{\Large\normalfont}
+\setbeforesecskip{-1\onelineskip plus -1ex minus -.2ex}
+\setaftersecskip{1\onelineskip plus .2ex}
+\setsubsecheadstyle{\centering\normalfont}
+\setbeforesubsecskip{-1\onelineskip plus -1ex minus -.2ex}
+\setaftersubsecskip{1\onelineskip plus .2ex}
+
+\OnehalfSpacing \OnehalfSpacing*
+
+\setsubsecheadstyle{\normalfont}
+
+
+%% end preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%#% extend
+
+\usepackage[draft]{fixme}
+\fxsetup{
+  layout=marginnote
+} 
+
+\chapterstyle{ger}
+
+\title{ \textsc{\huge aPad User Guide} \\ \textsc{\small v 1.0}}
+\author{UNIZG}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
